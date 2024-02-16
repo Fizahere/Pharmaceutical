@@ -1,0 +1,83 @@
+﻿@model Blending
+@{
+    ViewData["Title"] = "EditBlending";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+<h1 class="p-4">EditBlending</h1>
+
+@* edit form@**@
+    <div class="offcanvas-body">
+        <div class="p-4">
+            <div class="card-body">
+                <form method="post" asp-controller="Blendings" asp-action="EditBlending" id="basicform" data-parsley-validate="" enctype="multipart/form-data">
+                    <div class="row">
+                             <div>
+                            <input asp-for="BlendingID" type="hidden" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Name**</label>
+                            <input asp-for="Name" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Model</label>
+                            <input asp-for="Model" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Capacity</label>
+                            <input asp-for="Capacity" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Type Of Blending</label>
+                            <input asp-for="TypeOfBlending" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Mixing Speed</label>
+                            <input asp-for="MixingSpeed" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Mixing Time</label>
+                            <input asp-for="MixingTime" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Weight</label>
+                            <input asp-for="Weight" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Length</label>
+                            <input asp-for="length" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="text-dark">Width</label>
+                            <input asp-for="Width" type="text" data-parsley-trigger="change" required=" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Height</label>
+                            <input asp-for="Height" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUserName" class="text-dark">Image</label>
+                        <input asp-for="BlendingImage" type="file" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div>
+                            <p class="text-right">
+                                <input type="submit" value="Update" class="btn btn-primary" readonly />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

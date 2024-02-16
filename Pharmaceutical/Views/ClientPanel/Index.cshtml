@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+@model IEnumerable<Tablet>
+    <!-- Header -->
+    <header id="header" class="header">
+        <img class="decoration-star" src="~/images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star-2" src="~/images/decoration-star.svg" alt="alternative">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="text-container">
+                    <h1 class="h1-large">Pharmaceuticals</h1>
+                    <h3>Navigating the Future of Pharmaceutical Solutions</h3>
+                    <p class="p-large">Explore the future of pharmaceuticals through our commitment to education and innovation. Welcome to a world where excellence meets breakthroughs.</p>
+                        <a class="btn-solid-lg" asp-controller="clientPanel" asp-action="About">More details</a>
+                        <a class="btn-outline-lg" asp-controller="clientPanel" asp-action="ContactUs">Contact us</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-4 col-xl-6">
+                    <div class="image-container">
+                        <img class="img-fluid" src="~/images/homepageImage2.png" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+    <!-- Introduction -->
+    <div id="introduction" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9">
+                <h2>Revolutionizing pharmaceutical machinery solutions. Discover cutting-edge technology and precision in our industry-leading designs.</h2>
+                <p>Unleashing the future of pharmaceutical machinery innovation, we redefine industry standards with our state-of-the-art solutions. Explore our portfolio to witness the seamless integration of cutting-edge technology, precision engineering, and unparalleled reliability. Elevate your operations with our advanced machinery designed to meet the evolving demands of the pharmaceutical industry.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of introduction -->
+    <!-- Details 1 -->
+    <div id="details" class="basic-2">
+        <img class="decoration-star" src="ClientLib/images/decoration-star.svg" alt="alternative">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5">
+                    <div class="image-container">
+                        <img class="img-fluid" src="~/images/homepageImage3.jpg" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6 col-xl-7">
+                    <div class="text-container">
+                    <h2>Embrace the uniqueness of your pharmaceutical machinery needs
+                        </h2>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="d-flex">
+                                <i class="fas fa-square"></i>
+                            <div class="flex-grow-1">
+                                A tailored approach to every requirement.
+                            </div>
+                            </li>
+                            <li class="d-flex">
+                                <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"> No two solutions are alike, just like the specialized equipment we provide.</div>
+                            </li>
+                            <li class="d-flex">
+                                <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"> Explore the possibilities of innovation and functionality that redefine industry standards.</div>
+                            </li>
+                            <li class="d-flex">
+                                <i class="fas fa-square"></i>
+                            <div class="flex-grow-1">Our commitment to excellence ensures that your operations stand out, just as every project we undertake is distinctly crafted for success.</div>
+                            </li>
+                        </ul>
+@*                         <a class="btn-solid-reg" href="article.html">Get started</a>
+ *@                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of details 1 -->
+    <!-- Invitation -->
+    <div class="basic-4 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Our team of highly skilled designers and interior construction workers can deliver above your level of expections</h4>
+                    <a class="btn-solid-lg" href="#contact">Get quote</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-4 -->
+    <!-- end of invitation -->
+    <!-- Projects -->
+    <div id="projects" class="cards-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Some of our Machines</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    @foreach( var products in Model.Take(3)){
+                    <!-- Card -->
+                    <div class="card">
+                        <img height="400px" width="100%" src="~/images/@products.TabletImage" alt="alternative">
+                        <div class="card-body">
+                            <h5 class="card-title">@products.ModelNumber</h5>
+                            <p class="card-text">@products.ProductionCapacity<a class="blue no-line" asp-route-id="@products.TabletID" asp-action="TabletDetail">...Read more</a></p>
+                        </div>
+                    </div>
+                }
+                    <!-- end of card -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-2 -->
+    <!-- end of projects -->

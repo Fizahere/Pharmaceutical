@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Blending";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+
+@model IEnumerable<Blending>
+<div id="projects" class="cards-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h2-heading">Blending Machines</h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+            @foreach (var blending in Model)
+            {
+                <div class="col-lg-4">
+
+                    <!-- Card -->
+                    <div class="card">
+                        <img height="400px" width="100%" src="~/images/@blending.BlendingImage" alt="alternative">
+                        <div class="card-body">
+                            <h5 class="card-title">@blending.Name</h5>
+                            <p class="card-text">@blending.Model<a class="blue no-line" asp-controller="clientPanel" asp-action="TabletDetail" asp-route-id="@blending.BlendingID">...Read more</a></p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                </div> <!-- end of col -->
+            }
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of cards-2 -->
+<!-- end of projects -->

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "BlendingDetail";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+
+
+@model Blending
+<!-- Details 1 -->
+<div id="details" class="basic-2">
+    <img class="decoration-star" src="~/images/decoration-star.svg" alt="alternative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="image-container">
+                    <img class="img-fluid" width="100%" src="~/images/@ViewBag.singleBlending.BlendingImage" alt="alternative">
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+            <div class="col-lg-6 col-xl-7">
+                <div class="text-container">
+                    <h2>@ViewBag.singleBlending.Name</h2>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Model:</strong> @ViewBag.singleBlending.Model</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Capacity:</strong> @ViewBag.singleBlending.Capacity</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Type Of Blending:</strong> @ViewBag.singleBlending.TypeOfBlending</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Mixing Speed:</strong> @ViewBag.singleBlending.MixingSpeed</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Mixing Time:</strong> @ViewBag.singleBlending.MixingTime</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Weight:</strong> @ViewBag.singleBlending.Weight</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>length:</strong> @ViewBag.singleBlending.length</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Width:</strong> @ViewBag.singleBlending.Width</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Height:</strong> @ViewBag.singleBlending.Height</div>
+                        </li>
+                    </ul>
+                </div> <!-- end of text-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-2 -->
+<!-- end of details 1 --

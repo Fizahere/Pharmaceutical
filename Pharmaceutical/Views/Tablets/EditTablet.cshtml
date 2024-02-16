@@ -1,0 +1,79 @@
+﻿@model Tablet
+@{
+    ViewData["Title"] = "EditTablet";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="p-4">
+<h1>Edit Tablet</h1>
+
+@* edit form
+ *@
+    <div class="offcanvas-body">
+        <div class="p-4">
+            <div class="card-body">
+                <form method="post" asp-controller="Tablets" asp-action="EditTablet" enctype="multipart/form-data" id="basicform" data-parsley-validate="">
+                    <div class="row">
+                        <input id="inputUserName" type="hidden" asp-for="TabletID" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName">Name</label>
+                            <input id="inputUserName" type="text" asp-for="Name" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">ModelNumber</label>
+                            <input id="inputEmail" type="text" asp-for="ModelNumber" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword">Dies</label>
+                            <input id="inputPassword" asp-for="Dies" type="text" required="" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">MaxPressure</label>
+                            <input id="inputRepeatPassword" asp-for="MaxPressure" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">MaxDiameter</label>
+                            <input id="inputRepeatPassword" asp-for="MaxDiameter" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">MaxDepthOfFill</label>
+                            <input id="inputRepeatPassword" asp-for="MaxDepthOfFill" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">ProductionCapacity</label>
+                            <input id="inputRepeatPassword" asp-for="ProductionCapacity" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">MachineSize</label>
+                            <input id="inputRepeatPassword" asp-for="MachineSize" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">Netweight</label>
+                            <input id="inputRepeatPassword" asp-for="Netweight" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputRepeatPassword">TabletImage</label>
+                            <input id="inputRepeatPassword" asp-for="TabletImage" data-parsley-equalto="#inputPassword" type="file" required="" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <p class="text-right">
+                                <input value="Submit" type="Update" class="btn btn-primary" readonly />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

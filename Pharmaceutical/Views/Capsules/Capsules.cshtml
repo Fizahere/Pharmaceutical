@@ -1,0 +1,150 @@
+﻿@model List<Capsule>
+
+@{
+    ViewData["Title"] = "Capsules";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .offcanvas-end {
+        width: 45rem !important;
+    }
+</style>
+
+<div class="p-4">
+    <div class="d-flex justify-content-between">
+        <h1>Capsules</h1>
+        <button class="btn btn-primary mb-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><a class="text-light">+ Add Product</a></button>
+    </div>
+    @* table *@
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- data table multiselects  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Products </h5>
+                  
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Output</th>
+                                    <th>Size</th>
+                                    <th>ShippingWeight</th>
+                                    <th>Profill</th>
+                                    <th>Image</th>
+                                    <th>length</th>
+                                    <th>Width</th>
+                                    <th>Height</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.CapsuleID</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Output</td>
+                                        <td>@item.CapsuleSize</td>
+                                        <td>@item.ShippingWeight</td>
+                                        <td>@item.Profill</td>
+                                        <td><img src="~/images/@item.CapsuleImage" height="100" width="100" /></td>
+                                        <td>@item.length</td>
+                                        <td>@item.Width</td>
+                                        <td>@item.Height</td>
+                                        <td><button class="btn btn-primary"><a class="text-light" asp-route-id="@item.CapsuleID" asp-controller="Capsules" asp-action="EditCapsule">Edit</a></button></td>
+                                        <td> <button class="btn btn-danger" onclick="confirmDelete('@item.CapsuleID')">Delete</button></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* addTable
+    *@
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Add Product</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="p-4">
+                <div class="card-body">
+                    <form method="post" asp-controller="Capsules" asp-action="AddCapsules" id="basicform" data-parsley-validate="" enctype="multipart/form-data">
+                       <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Name**</label>
+                            <input name="Name" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Output</label>
+                            <input name="Output" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">CapsuleSize</label>
+                            <input name="CapsuleSize" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">ShippingWeight</label>
+                            <input name="ShippingWeight" type="text" data-parsley-trigger="change" required=""  autocomplete="off" class="form-control">
+                        </div>
+                </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Profill</label>
+                            <input name="Profill" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">length</label>
+                            <input name="length" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                </div>
+            </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Width</label>
+                            <input name="Width" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                            <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Height</label>
+                            <input name="Height" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+            </div>
+        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">CapsuleImage</label>
+                            <input name="CapsuleImage" type="file" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="row">
+                            <div>
+                                <p class="text-right">
+                                    <input type="submit" value="Add Product" class="btn btn-primary" readonly />
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    function confirmDelete(capsuleId) {
+        if (confirm("Are you sure you want to delete this product?")) {
+            window.location.href = '/Capsules/DeleteCapsule?id=' + capsuleId;
+        }
+    }
+</script>

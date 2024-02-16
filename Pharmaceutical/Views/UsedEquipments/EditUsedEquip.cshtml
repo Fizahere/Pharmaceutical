@@ -1,0 +1,69 @@
+﻿@model UsedEquipment
+@{
+    ViewData["Title"] = "EditUsedEquip";
+    Layout = "AdminLayout.cshtml";
+}
+
+<div class="p-4">
+<h1>EditUsedEquip</h1>
+
+
+    @* addTable
+    *@
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Add Product</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="p-4">
+                <div class="card-body">
+                    <form asp-controller="UsedEquipments" asp-action="EditUsedEquip" enctype="multipart/form-data" id="basicform" data-parsley-validate="">
+                     <div class="row">
+                            <input id="inputUserName" type="hidden" asp-for="UsedEquipmentID" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        <div class="form-group">
+                            <label for="inputUserName">Name</label>
+                            <input id="inputUserName" type="text" asp-for="Name" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Model</label>
+                            <input id="inputEmail" type="text" asp-for="Model" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            </div>
+                        </div>
+                     <div class="row">
+                        <div class="form-group">
+                            <label for="inputPassword">Manufacturer</label>
+                            <input id="inputPassword" type="text" asp-for="Manufacturer" required="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">Condition</label>
+                            <input id="inputRepeatPassword" asp-for="Condition" data-parsley-equalto="#inputPassword" type="text" required=""  class="form-control">
+                        </div>
+                </div>
+                   <div class="row">
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">PreviousUsage</label>
+                            <input id="inputRepeatPassword" asp-for="PreviousUsage" data-parsley-equalto="#inputPassword" type="text" required=""class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">ReasonsForSelling</label>
+                            <input id="inputRepeatPassword" asp-for="ReasonsForSelling" data-parsley-equalto="#inputPassword" type="text" required=""  class="form-control">
+                        </div</div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">UsedEquipmentImage</label>
+                            <input id="inputRepeatPassword" asp-for="UsedEquipmentImage" data-parsley-equalto="#inputPassword" type="file" required=""  class="form-control">
+                        </div>
+                        <div class="row">
+                            <div>
+                                <p class="text-right">
+<input type="submit" value="Submit" class="btn btn-primary" readonly/>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

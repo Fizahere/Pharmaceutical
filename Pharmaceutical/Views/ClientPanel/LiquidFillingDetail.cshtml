@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "LiquidFillingDetail";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+
+
+@model LiquidFilling
+<!-- Details 1 -->
+<div id="details" class="basic-2">
+    <img class="decoration-star" src="~/images/decoration-star.svg" alt="alternative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="image-container">
+                    <img class="img-fluid" width="100%" src="~/images/@ViewBag.singleLiquidFilling.LiquidFillingImage" alt="alternative">
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+            <div class="col-lg-6 col-xl-7">
+                <div class="text-container">
+                    <h2>@ViewBag.singleLiquidFilling.Name</h2>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>AirPressure:</strong> @ViewBag.singleLiquidFilling.AirPressure</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>AirVolume:</strong> @ViewBag.singleLiquidFilling.AirVolume</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>FillingSpeed:</strong> @ViewBag.singleLiquidFilling.FillingSpeed</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>FillingRange:</strong> @ViewBag.singleLiquidFilling.FillingRange</div>
+                        </li>
+                    </ul>
+                </div> <!-- end of text-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-2 -->
+<!-- end of details 1 -->

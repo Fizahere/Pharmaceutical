@@ -1,0 +1,158 @@
+﻿@model UserCareer
+@{
+    ViewData["Title"] = "CareerForm";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+@{
+    var user = Context.Session.GetString("userId");
+}
+
+<h1>CareerForm</h1>
+<!-- Contact -->
+<div id="contact" class="form-1">
+    <img class="decoration-star" src="~/images/decoration-star.svg" alt="alternative">
+    <img class="decoration-star-2" src="~/images/decoration-star.svg" alt="alternative">
+    <div class="container">
+        <div class="row">
+            @if (ViewBag.success == true)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Your Application has been uploaded!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <script>
+                    setTimeout(() => window.location.replace("Index"), 3000);
+                </script>
+            }
+            <div class="col-lg-12">
+                <div class="text-container">
+                    <h2>Career Form</h2>
+                    <!-- Contact Form -->
+                    <div class="btn-group d-flex justify-content-evenly">
+                    </div>
+                    <div>
+                        <p class="text-danger">@ViewBag.error</p>
+
+                        <form method="post" asp-controller="clientPanel" asp-action="CareerForm" enctype="multipart/form-data">
+                            <div class="row">
+                                @* <div class="col-lg-12 container" id="tab1"> *@
+                                    <input type="hidden" class="form-control-input" value="@user" asp-for="UserId"/>
+                                    <h4>Personal Information</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="Name" asp-for="Name" required />
+                                        <span asp-validation-for="Name"></span>
+                                    </div>
+@*                                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+ *@
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="FatherName" asp-for="FatherName" required />
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="Address" asp-for="Address" required />
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control-input" placeholder="Phone number" asp-for="PhoneNumber"  required />
+                                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <Select class="form-control-input" asp-for="Gender" required >
+                                            <option selected>Select Value</option>
+                                            <option value="male" >Male</option>
+                                            <option value="female">Female</option>
+                                        </Select>
+                                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control-input" placeholder="Date of Birth" asp-for="DateOfBirth" required />
+                                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control-input" placeholder="Email Address" asp-for="EmailAddress" required />
+                                        @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                                    </div>
+                                    <h4>Education</h4>
+                                @* </div> *@
+                               @* <div class="col-lg-12" id="tab2" style="display:none"> *@
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="Education" asp-for="Education" required />
+                                        @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="Degree" asp-for="Degree" required />
+                                        @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="Specialization" asp-for="Specialization" required/>
+                                        @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+                                    </div>  <div class="form-group">
+                                        <input type="text" class="form-control-input" placeholder="School/College/University" asp-for="School" required/>
+                                        @Html.ValidationMessageFor(model => model.School, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control-input" placeholder="CGPA/Percentage/Division" asp-for="CGPA" required />
+                                        @Html.ValidationMessageFor(model => model.CGPA, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control-input" placeholder="Year of passing" asp-for="PassingYear" required/>
+                                        @Html.ValidationMessageFor(model => model.PassingYear, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <h4>Resume</h4>
+                                @* </div> *@
+                              @* ///  <div class="col-lg-12" id="tab3" style="display:none" > *@
+                            <div class="form-group">
+                                        <input type="file" class="form-control-input" asp-for="Resume" required/>
+                                        @Html.ValidationMessageFor(model => model.Resume, "", new { @class = "text-danger" })
+                                    </div> 
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control-submit-button">Submit</button>
+                                    </div>
+                            @* //    </div> *@
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end of contact form -->
+                </div> <!-- end of text-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of form-1 -->
+<!-- end of contact -->
+<script>
+
+    function showEducationForm() {
+        document.querySelector("#tab2").style.display = "block";
+        document.querySelector("#tab1").style.display = "none";
+
+    }
+    function showResumeUploader (){
+        document.querySelector("#tab3").style.display = "block";
+        document.querySelector("#tab2").style.display = "none";
+    }
+    function PersonalInfo() {
+    document.querySelector("#tab1").style.display = "block";
+    document.querySelector("#tab2").style.display = "none";
+        document.querySelector("#tab3").style.display = "none";
+
+
+    }
+    function EducationalInfo() {
+    document.querySelector("#tab2").style.display = "block";
+    document.querySelector("#tab1").style.display = "none";
+        document.querySelector("#tab3").style.display = "none";
+
+
+    }
+    function ResumeUploader() {
+        document.querySelector("#tab3").style.display = "block";
+        document.querySelector("#tab2").style.display = "none";
+        document.querySelector("#tab1").style.display = "none";
+    }
+    function showAlertWhenInputFieldsAreEmpty() {
+        alert("working");
+    }
+
+</script>

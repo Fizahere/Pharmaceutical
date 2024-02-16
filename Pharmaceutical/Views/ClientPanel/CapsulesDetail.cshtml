@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "CapsulesDetail";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+
+@model Capsule
+<!-- Details 1 -->
+<div id="details" class="basic-2">
+    <img class="decoration-star" src="~/images/decoration-star.svg" alt="alternative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="image-container">
+                    <img class="img-fluid" width="100%" src="~/images/@ViewBag.singleCapsule.CapsuleImage" alt="alternative">
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+            <div class="col-lg-6 col-xl-7">
+                <div class="text-container">
+                    <h2>@ViewBag.singleCapsule.Name</h2>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Output:</strong> @ViewBag.singleCapsule.Output</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Capsule Size:</strong> @ViewBag.singleCapsule.CapsuleSize</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Shipping Weight:</strong> @ViewBag.singleCapsule.ShippingWeight</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Profill:</strong> @ViewBag.singleCapsule.Profill</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>length:</strong> @ViewBag.singleCapsule.length</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Width:</strong> @ViewBag.singleCapsule.Width</div>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-square"></i>
+                            <div class="flex-grow-1"><strong>Height:</strong> @ViewBag.singleCapsule.Height</div>
+                        </li>
+                    </ul>
+                </div> <!-- end of text-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-2 -->
+<!-- end of details 1 -->

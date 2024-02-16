@@ -1,0 +1,60 @@
+@model RatioChartViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+<h1 class="p-4">Dashboard</h1>
+ 
+<canvas id="myChart" width="400" height="300"></canvas>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var blendingsData = @Html.Raw(Json.Serialize(Model.Blendings));
+        var capsulesData = @Html.Raw(Json.Serialize(Model.Capsules));
+        var liquidFilling = @Html.Raw(Json.Serialize(Model.LiquidFilling));
+        var processEquipment = @Html.Raw(Json.Serialize(Model.ProcessEquipment));
+        var quotes = @Html.Raw(Json.Serialize(Model.Quotes));
+        var tabletsData = @Html.Raw(Json.Serialize(Model.Tablets));
+        var usedEuipments = @Html.Raw(Json.Serialize(Model.UsedEquipment));
+        var users = @Html.Raw(Json.Serialize(Model.Users));
+
+        var totalBlendings = blendingsData.length;
+        var totalCapsules = capsulesData.length;
+        var totalLiuidFillings = liquidFilling.length;
+        var totalProcessEquipments = processEquipment.length;
+        var totalQuotes = quotes.length;
+        var totalTablets = tabletsData.length;
+        var totalUsedEquip = usedEuipments.length;
+        var totalUsers = users.length;
+
+        var tableLabels = ['Blendings','Capsules','LiquidFillings','ProcessEquipments','Quotes', 'Tablets','UsedEquipments', 'Users'];
+        var tableCounts = [totalBlendings, totalCapsules, totalLiuidFillings, totalProcessEquipments, totalQuotes, totalTablets, totalUsedEquip, totalUsers];
+       
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: tableLabels,
+                datasets: [{
+                    label: 'Data',
+                    data: tableCounts,
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    </div>
+}

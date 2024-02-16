@@ -1,0 +1,68 @@
+﻿@model ProcessEquipment
+@{
+    ViewData["Title"] = "EditProcessEquip";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="p-4">
+<h1>EditProcessEquip</h1>
+    @* edit form *@
+  
+        <div class="offcanvas-body">
+            <div class="p-4">
+                <div class="card-body">
+                <form method="post" asp-controller="ProcessEquipments" asp-action="EditProcessEquip" id="basicform" data-parsley-validate="" enctype="multipart/form-data">
+                        <div class="row">
+                        <input id="inputUserName" type="hidden" asp-for="ProcessEquipmentID" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            <div class="form-group col-md-6">
+                                <label for="inputUserName">Name</label>
+                                <input id="inputUserName" type="text" asp-for="Name" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail">Model</label>
+                                <input id="inputEmail" type="text" asp-for="Model" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputRepeatPassword">MaterialOfConstruction</label>
+                                <input id="inputRepeatPassword" asp-for="MaterialOfConstruction" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputRepeatPassword">length</label>
+                                <input id="inputRepeatPassword" asp-for="length" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputRepeatPassword">Weight</label>
+                                <input id="inputRepeatPassword" asp-for="Weight" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputRepeatPassword">Width</label>
+                                <input id="inputRepeatPassword" asp-for="Width" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputRepeatPassword">Height</label>
+                                <input id="inputRepeatPassword" asp-for="Height" data-parsley-equalto="#inputPassword" type="text" required="" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword">ProcessEquipmentImage</label>
+                                <input id="inputPassword" asp-for="ProcessEquipmentImage" type="file" required="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <p class="text-right">
+                                    <input type="submit" value="Update" class="btn btn-primary" readonly />
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+

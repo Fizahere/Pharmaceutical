@@ -1,0 +1,60 @@
+﻿@model LiquidFilling
+@{
+    ViewData["Title"] = "EditLiquidFilling";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>EditLiquidFilling</h1>
+
+
+@* edit form *@
+<div class="offcanvas-body">
+    <div class="p-4">
+        <div class="card-body">
+            <form method="post" asp-controller="LiquidFilling" asp-action="EditLiquidFilling" id="basicform" data-parsley-validate="" enctype="multipart/form-data">
+                <div class="row">
+                    <div>
+                        <input asp-for="LiquidFillingID" type="hidden" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">Name**</label>
+                        <input asp-for="Name" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">Air Pressure</label>
+                        <input asp-for="AirPressure" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">Air Volume</label>
+                        <input asp-for="AirVolume" type="number" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">Filling Speed</label>
+                        <input asp-for="FillingSpeed" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">Filling Range</label>
+                        <input asp-for="FillingRange" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName" class="text-dark">Image</label>
+                    <input asp-for="LiquidFillingImage" type="file" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                </div>
+                <div class="row">
+                    <div>
+                        <p class="text-right">
+                            <input type="submit" value="Update" class="btn btn-primary" readonly />
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+

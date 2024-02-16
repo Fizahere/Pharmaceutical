@@ -1,0 +1,135 @@
+﻿@model List<UsedEquipment>
+@{
+    ViewData["Title"] = "UsedEquipments";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .offcanvas-end {
+        width: 45rem !important;
+    }
+</style>
+
+<div class="p-4">
+    <div class="d-flex justify-content-between">
+        <h1>Used Equipments</h1>
+        <button class="btn btn-primary mb-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><a class="text-light">+ Add Product</a></button>
+    </div>
+
+    @* table *@
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- data table multiselects  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Products</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Model</th>
+                                    <th>Manufacturer</th>
+                                    <th>Condition</th>
+                                    <th>UsedEquipmentImage</th>
+                                    <th>PreviousUsage</th>
+                                    <th>ReasonsForSelling</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model){
+                                <tr>
+                                        <td>@item.UsedEquipmentID</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Model</td>
+                                        <td>@item.Manufacturer</td>
+                                        <td>@item.Condition</td>
+                                    <td><img src="~/images/@item.UsedEquipmentImage" height="100" width="100" alt="@item.Name"/></td>
+                                        <td>@item.PreviousUsage</td>
+                                        <td>@item.ReasonsForSelling</td>
+                                        <td><button class="btn btn-primary"><a class="text-light" asp-route-id="@item.UsedEquipmentID" asp-controller="UsedEquipments" asp-action="EditUsedEquip">Edit</a></button></td>
+                                        <td> <button class="btn btn-danger" onclick="confirmDelete('@item.UsedEquipmentID')">Delete</button></td>
+                                </tr>}
+                            </tbody>
+                          
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* addTable
+    *@
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Add Product</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="p-4">
+                <div class="card-body">
+                    <form asp-controller="UsedEquipments" asp-action="AddUsedEquipments" enctype="multipart/form-data" id="basicform" data-parsley-validate="">
+                     <div class="row">
+                        <div class="form-group">
+                            <label for="inputUserName">Name</label>
+                            <input id="inputUserName" type="text" name="Name" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Model</label>
+                            <input id="inputEmail" type="text" name="Model" data-parsley-trigger="change" required="" autocomplete="off" class="form-control">
+                            </div>
+                        </div>
+                     <div class="row">
+                        <div class="form-group">
+                            <label for="inputPassword">Manufacturer</label>
+                            <input id="inputPassword" type="text" name="Manufacturer" required="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">Condition</label>
+                            <input id="inputRepeatPassword" name="Condition" data-parsley-equalto="#inputPassword" type="text" required=""  class="form-control">
+                        </div>
+                </div>
+                   <div class="row">
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">PreviousUsage</label>
+                            <input id="inputRepeatPassword" name="PreviousUsage" data-parsley-equalto="#inputPassword" type="text" required=""class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">ReasonsForSelling</label>
+                            <input id="inputRepeatPassword" name="ReasonsForSelling" data-parsley-equalto="#inputPassword" type="text" required=""  class="form-control">
+                        </div</div>
+                        <div class="form-group">
+                            <label for="inputRepeatPassword">UsedEquipmentImage</label>
+                            <input id="inputRepeatPassword" name="UsedEquipmentImage" data-parsley-equalto="#inputPassword" type="file" required=""  class="form-control">
+                        </div>
+                        <div class="row">
+                            <div>
+                                <p class="text-right">
+<input type="submit" value="Submit" class="btn btn-primary" readonly/>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+                            
+<script>
+    function confirmDelete(usedEquipId) {
+        if (confirm("Are you sure you want to delete this product?")) {
+            window.location.href = '/UsedEquipments/DeleteUsedEquip?id=' + usedEquipId;
+        }
+    }
+</script>
+

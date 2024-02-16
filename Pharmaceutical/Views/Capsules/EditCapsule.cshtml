@@ -1,0 +1,71 @@
+﻿@model Capsule
+@{
+    ViewData["Title"] = "EditCapsule";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="p-4">
+<h1>EditCapsule</h1>
+
+@* edit form *@
+
+    <div class="offcanvas-body">
+        <div class="p-4">
+            <div class="card-body">
+                <form method="post" asp-controller="Capsules" asp-action="EditCapsule" id="basicform" data-parsley-validate="" enctype="multipart/form-data">
+                    <div class="row">
+                        <input asp-for="CapsuleID" type="hidden" data-parsley-trigger="change" required="" autocomplete="off" class="form-control" />
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Name**</label>
+                            <input asp-for="Name" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Output</label>
+                            <input asp-for="Output" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">CapsuleSize</label>
+                            <input asp-for="CapsuleSize" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">ShippingWeight</label>
+                            <input asp-for="ShippingWeight" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Profill</label>
+                            <input asp-for="Profill" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">length</label>
+                            <input asp-for="length" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Width</label>
+                            <input asp-for="Width" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputUserName" class="text-dark">Height</label>
+                            <input asp-for="Height" type="text" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputUserName" class="text-dark">CapsuleImage</label>
+                        <input asp-for="CapsuleImage" type="file" data-parsley-trigger="change" required="" autocomplete="off" class="form-control"/>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <p class="text-right">
+                                <input type="submit" value="Update" class="btn btn-primary" readonly />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>

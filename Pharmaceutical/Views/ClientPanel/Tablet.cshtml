@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Tablet";
+    Layout = "~/Views/Shared/clientPanel.cshtml";
+}
+@model IEnumerable<Tablet>
+<div id="projects" class="cards-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h2-heading">Tablet Presses</h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+            @foreach (var tablet in Model)
+            {   
+            <div class="col-lg-4">
+
+                <!-- Card -->
+                <div class="card">
+                    <img height="400px" width="100%" src="~/images/@tablet.TabletImage" alt="alternative">
+                    <div class="card-body">
+                        <h5 class="card-title">@tablet.Name</h5>
+                            <p class="card-text">@tablet.ModelNumber<a class="blue no-line" asp-controller="clientPanel" asp-action="TabletDetail" asp-route-id="@tablet.TabletID">...Read more</a></p>
+                    </div>
+                </div>
+                <!-- end of card -->
+
+            </div> <!-- end of col -->
+            }
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of cards-2 -->
+<!-- end of projects -->

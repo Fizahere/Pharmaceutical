@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="~/ClientLib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/ClientLib/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="~/ClientLib/css/swiper.css" rel="stylesheet">
+    <link href="~/ClientLib/css/styles.css" rel="stylesheet">
+    <!-- Favicon  -->
+    <link rel="icon" href="~/ClientLib/images/favicon.png">
+    
+
+</head>
+<body>
+    <!-- Login -->
+    <div id="" class="">
+            <div class="row">
+                <div class="col-lg-6">
+                     <div class="image-container"> 
+                        <img class="img-fluid" style="height:40rem;width:35rem" src="~/images/Login2.jpg" alt="alternative">
+                     </div> 
+                    <!-- end of image-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="container p-5 mt-5">
+                    <div class="text-container">
+                        <h2>Login</h2>
+
+                        <!-- Contact Form -->
+                        <form method="post" asp-controller="Auth" asp-action="Login">
+                            <div class="form-group">
+                                <input type="text" name="UserName" class="form-control" placeholder="Username**" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="Password" class="form-control" placeholder="Password**" required>
+                            </div>
+                            <p class="ml-4 text-danger">@ViewBag.error</p>
+                            <div class="form-group">
+                                <input type="submit" class="form-control-submit-button" value="Login"/>
+                            </div>
+                        </form>
+                    <p class="ml-4">Dont't have an account?<a asp-controller="Auth" asp-action="SignUp" class="text-primary">Create One</a></p>
+                        <p class="ml-4"><a asp-controller="clientPanel" asp-action="Index" class="text-primary">Back to website</a></p>
+                        <!-- end of contact form -->
+                    </div> <!-- end of text-container -->
+            </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+    </div> <!-- end of form-1 -->
+    <!-- end of contact -->
+    </body>
+<button onclick="topFunction()" id="myBtn">
+    <img src="~/ClientLib/images/up-arrow.png" alt="alternative">
+</button>
+<!-- end of back to top button -->
+<!-- Scripts -->
+<script src="~/ClientLib/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+<script src="~/ClientLib/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+<script src="~/ClientLib/js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
+<script src="~/ClientLib/js/scripts.js"></script> <!-- Custom scripts -->
+<body>
+</body>
+</html>
